@@ -223,58 +223,81 @@ The system works perfectly without pull-up resistors, automatically falling back
 - [ ] Open Serial Monitor at 115200 baud
 - [ ] Watch beautiful water flow animation!
 
-🔧 Hardware Fix for Smooth LED Animation
-⚠️ Important Notice: For Optimal Performance
-In the demonstration video (media/core_wave.mp4), you may notice that the WS2812B LED ring shows jerky movement while the serial monitor displays perfectly smooth wave motion.
+# 🔧 **Hardware Fix for Smooth LED Animation**
 
-🎯 The Issue & Solution
-Problem:
-Serial Monitor: Shows smooth wave: ______-=-~-=-______
-LED Ring: Shows choppy, incomplete wave
-Root Cause: MPU6050 communication issues without pull-up resistors
-Solution: Add 2x 4.7kΩ Resistors
+## ⚠️ **Important Notice: For Optimal Performance**
+
+In the demonstration video (`media/core_wave.mp4`), you may notice that the **WS2812B LED ring shows jerky movement** while the **serial monitor displays perfectly smooth wave motion**.
+
+## 🎯 **The Issue & Solution**
+
+### **Problem:**
+- **Serial Monitor**: Shows smooth wave: `______-=-~-=-______`
+- **LED Ring**: Shows choppy, incomplete wave
+- **Root Cause**: MPU6050 communication issues without pull-up resistors
+
+### **Solution: Add 2x 4.7kΩ Resistors**
+```
 Pico 3V3 → 4.7kΩ resistor → MPU6050 SDA
 Pico 3V3 → 4.7kΩ resistor → MPU6050 SCL
-🛠 Required Components
-2x 4.7kΩ resistors (or 2.2kΩ-10kΩ range)
-MPU6050 sensor
-Raspberry Pi Pico 2
-WS2812B LED ring
-🔌 Resistor Installation
-Connection Diagram:
+```
+
+## 🛠 **Required Components**
+- 2x 4.7kΩ resistors (or 2.2kΩ-10kΩ range)
+- MPU6050 sensor
+- Raspberry Pi Pico 2
+- WS2812B LED ring
+
+## 🔌 **Resistor Installation**
+
+### **Connection Diagram:**
+```
       4.7kΩ
 3V3 ────╱╱╱╱─── SDA
        │
       4.7kΩ  
 3V3 ────╱╱╱╱─── SCL
-Physical Connection:
-Connect resistors between 3V3 and SDA
-Connect resistors between 3V3 and SCL
-Use breadboard or solder directly
-📊 Before vs After Resistors
-Without Resistors:
-✅ System works with simulated motion
-❌ LED animation may be jerky
-❌ Tilt control unreliable
-❌ MPU6050 may not be detected
-With Resistors:
-✅ Smooth, fluid LED animation
-✅ Perfect tilt-responsive control
-✅ Reliable MPU6050 detection
-✅ LED ring matches serial monitor smoothness
-🚀 Expected Results After Fix
-LED Behavior:
-Before: Choppy, incomplete wave movements
-After: Smooth, continuous water flow
-Serial Output:
+```
+
+### **Physical Connection:**
+- Connect resistors between **3V3 and SDA**
+- Connect resistors between **3V3 and SCL** 
+- Use breadboard or solder directly
+
+## 📊 **Before vs After Resistors**
+
+### **Without Resistors:**
+- ✅ System works with simulated motion
+- ❌ LED animation may be jerky
+- ❌ Tilt control unreliable
+- ❌ MPU6050 may not be detected
+
+### **With Resistors:**
+- ✅ **Smooth, fluid LED animation**
+- ✅ **Perfect tilt-responsive control**
+- ✅ **Reliable MPU6050 detection**
+- ✅ **LED ring matches serial monitor smoothness**
+
+## 🚀 **Expected Results After Fix**
+
+### **LED Behavior:**
+- **Before**: Choppy, incomplete wave movements
+- **After**: Smooth, continuous water flow
+
+### **Serial Output:**
+```
 F:42 | S:REAL | X:0.15 | V:0.08 | ______-=-~-=-______
 F:43 | S:REAL | X:0.14 | V:0.07 | ______-=-~-=-______
 F:44 | S:REAL | X:0.13 | V:0.06 | ______-=-~-=-______
-💡 Why This Matters
-The pull-up resistors ensure clean, stable communication with the MPU6050 sensor, which directly translates to smooth, responsive water physics on the LED ring.
+```
 
-🔧 Quick Setup
-Add resistors between 3V3 and SDA/SCL
-Upload any water animation code
-Enjoy smooth, tilt-responsive water flow
-This small hardware addition ensures professional-quality animation results! 🌊✨
+## 💡 **Why This Matters**
+
+The pull-up resistors ensure **clean, stable communication** with the MPU6050 sensor, which directly translates to **smooth, responsive water physics** on the LED ring.
+
+## 🔧 **Quick Setup**
+1. **Add resistors** between 3V3 and SDA/SCL
+2. **Upload any water animation code**
+3. **Enjoy smooth, tilt-responsive water flow**
+
+**This small hardware addition ensures professional-quality animation results!** 🌊✨
