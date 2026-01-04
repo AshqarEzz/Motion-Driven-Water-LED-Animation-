@@ -1,13 +1,7 @@
 # Motion-Driven-Water-LED-Animation-
 
-Project Title
-A brief description of what this project does and who it's for
-
-in the folder named( 1 pcb hat mpu6050 the design using kicad is presented), I am not a pro in kicad so its not a complete design.
 
 in the folder named (2-wave-with-sensor-control) is the working project, the following is how to run it :
-
-(The project report is written by AI after days of communicating and failing, the report contain where i had issues and the troubleshooting for some errors, note that i don't have 4.7kΩ resistor at home so the serial uploaded will have the wave without the control by the 4.7kΩ resistor, but adding it as in the design picture attached under the name design the wave flow should work flawlessly)
 
 🌊 Water Flow LED Animation Project
 
@@ -31,6 +25,7 @@ Computer with Arduino IDE
 USB cable
 🔌 Wiring Diagram
 Pico 2 → MPU6050 Connections
+-----------------------------
 Pico 2    →   MPU6050
 -----        -----
 3V3       →   VCC
